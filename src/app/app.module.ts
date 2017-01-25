@@ -8,7 +8,6 @@ import {RouterModule, PreloadAllModules} from '@angular/router';
 
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
 import {NoContentComponent} from "./no-content/no-content.component";
