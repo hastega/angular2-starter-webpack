@@ -10,5 +10,5 @@ import "@angular/router";
 // RxJS
 import "rxjs";
 
-//Zone
+// Zone
 import "zone.js/dist/zone";

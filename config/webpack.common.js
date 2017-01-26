@@ -21,7 +21,9 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
+                exclude: /node_modules/,
                 loaders: ['tslint-loader', 'awesome-typescript-loader', 'angular2-template-loader']
+
             },
             {
                 test: /\.html$/,
