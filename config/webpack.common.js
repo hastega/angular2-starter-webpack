@@ -20,10 +20,14 @@ module.exports = {
     module: {
         loaders: [
             {
+                enforce: 'pre',
                 test: /\.ts$/,
-                exclude: /node_modules/,
-                loaders: ['tslint-loader', 'awesome-typescript-loader', 'angular2-template-loader']
-
+                loaders: ['tslint-loader'],
+                exclude: [/\.(specle2e)\.ts$/, /node_modules/]
+            },
+            {
+                test: /\.ts$/,
+                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
             },
             {
                 test: /\.html$/,
@@ -48,6 +52,20 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: 'src/index.html'
-        })
+        }),
+
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                tslint: {
+                    emitErrors: true,
+                    failOnHint: false
+                }
+            }
+        }),
+
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            __dirname
+        )
     ]
 };
